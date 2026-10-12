@@ -15,8 +15,13 @@ public class Arreglos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String nombre = "Junito";
-        System.out.println(nombre);
+        String nombre = "Junito" ;
+        System.out.println(nombre);  
+        
+        
+        
+        
+        
         
         
         String[] nombres = {"Juanito", "Luis", "María", "Lupita" };
