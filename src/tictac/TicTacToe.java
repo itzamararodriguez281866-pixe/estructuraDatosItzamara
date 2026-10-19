@@ -8,14 +8,14 @@ package tictac;
  *
  * @author puma_
  */
-public class TicTac extends javax.swing.JFrame {
+public class TicTacToe extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TicTac.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TicTacToe.class.getName());
 
     /**
      * Creates new form TicTac
      */
-    public TicTac() {
+    public TicTacToe() {
         initComponents();
     }
 
@@ -170,7 +170,7 @@ public class TicTac extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -240,7 +240,7 @@ public class TicTac extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TicTac().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TicTacToe().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
