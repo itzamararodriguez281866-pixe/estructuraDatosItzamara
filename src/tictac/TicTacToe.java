@@ -7,7 +7,7 @@ package tictac;
 import java.util.ArrayList;
 import javax.swing.JButton;
 
-/*MaritA
+/*no puedo subir el trabajoooo
 /**
  *
  * @author puma_
