@@ -281,6 +281,8 @@ public class TicTacToe extends javax.swing.JFrame {
         juegoTerminado = false;
         lblGano.setText("Ganó: ");
     }
+    
+    
    
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
