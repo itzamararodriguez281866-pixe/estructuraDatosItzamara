@@ -4,6 +4,10 @@
  */
 package tictac;
 
+import java.util.ArrayList;
+import javax.swing.JButton;
+
+/*MaritA
 /**
  *
  * @author puma_
@@ -11,12 +15,27 @@ package tictac;
 public class TicTacToe extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TicTacToe.class.getName());
-
+    private String turno = "X";
+    private int contadorEmpates = 0;
+    private boolean juegoTerminado = false;
+    private ArrayList<JButton> botones = new ArrayList<>();
     /**
      * Creates new form TicTac
      */
     public TicTacToe() {
         initComponents();
+        botones.add(btn0);
+        botones.add(btn1);
+        botones.add(btn2);
+        botones.add(btn3);
+        botones.add(btn4);
+        botones.add(btn5);
+        botones.add(btn6);
+        botones.add(btn7);
+        botones.add(btn8);
+
+        // Evento del botón reiniciar
+        btnReiniciar.addActionListener(evt -> reiniciarJuego());
     }
 
     /**
@@ -30,18 +49,18 @@ public class TicTacToe extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        btn0 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
+        btn5 = new javax.swing.JButton();
+        btn8 = new javax.swing.JButton();
+        lblGano = new javax.swing.JLabel();
+        btnReiniciar = new javax.swing.JButton();
+        lblEmpate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,51 +69,53 @@ public class TicTacToe extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setText("Tic Tac");
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 153));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        btn0.setBackground(new java.awt.Color(255, 102, 153));
+        btn0.setForeground(new java.awt.Color(0, 0, 0));
+        btn0.addActionListener(this::btn0ActionPerformed);
 
-        jButton10.setBackground(new java.awt.Color(255, 102, 153));
-        jButton10.setForeground(new java.awt.Color(0, 0, 0));
-        jButton10.addActionListener(this::jButton10ActionPerformed);
+        btn1.setBackground(new java.awt.Color(255, 102, 153));
+        btn1.setForeground(new java.awt.Color(0, 0, 0));
+        btn1.addActionListener(this::btn1ActionPerformed);
 
-        jButton11.setBackground(new java.awt.Color(255, 102, 153));
-        jButton11.setForeground(new java.awt.Color(0, 0, 0));
-        jButton11.addActionListener(this::jButton11ActionPerformed);
+        btn2.setBackground(new java.awt.Color(255, 102, 153));
+        btn2.setForeground(new java.awt.Color(0, 0, 0));
+        btn2.addActionListener(this::btn2ActionPerformed);
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 153));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        btn3.setBackground(new java.awt.Color(255, 102, 153));
+        btn3.setForeground(new java.awt.Color(0, 0, 0));
+        btn3.addActionListener(this::btn3ActionPerformed);
 
-        jButton3.setBackground(new java.awt.Color(255, 102, 153));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        btn6.setBackground(new java.awt.Color(255, 102, 153));
+        btn6.setForeground(new java.awt.Color(0, 0, 0));
+        btn6.addActionListener(this::btn6ActionPerformed);
 
-        jButton12.setBackground(new java.awt.Color(255, 102, 153));
-        jButton12.setForeground(new java.awt.Color(0, 0, 0));
-        jButton12.addActionListener(this::jButton12ActionPerformed);
+        btn4.setBackground(new java.awt.Color(255, 102, 153));
+        btn4.setForeground(new java.awt.Color(0, 0, 0));
+        btn4.addActionListener(this::btn4ActionPerformed);
 
-        jButton13.setBackground(new java.awt.Color(255, 102, 153));
-        jButton13.setForeground(new java.awt.Color(0, 0, 0));
-        jButton13.addActionListener(this::jButton13ActionPerformed);
+        btn7.setBackground(new java.awt.Color(255, 102, 153));
+        btn7.setForeground(new java.awt.Color(0, 0, 0));
+        btn7.addActionListener(this::btn7ActionPerformed);
 
-        jButton14.setBackground(new java.awt.Color(255, 102, 153));
-        jButton14.setForeground(new java.awt.Color(0, 0, 0));
-        jButton14.addActionListener(this::jButton14ActionPerformed);
+        btn5.setBackground(new java.awt.Color(255, 102, 153));
+        btn5.setForeground(new java.awt.Color(0, 0, 0));
+        btn5.addActionListener(this::btn5ActionPerformed);
 
-        jButton15.setBackground(new java.awt.Color(255, 102, 153));
-        jButton15.setForeground(new java.awt.Color(0, 0, 0));
-        jButton15.addActionListener(this::jButton15ActionPerformed);
+        btn8.setBackground(new java.awt.Color(255, 102, 153));
+        btn8.setForeground(new java.awt.Color(0, 0, 0));
+        btn8.addActionListener(this::btn8ActionPerformed);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setText("Ganó: ");
+        lblGano.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblGano.setText("Ganó: ");
 
-        jButton4.setBackground(new java.awt.Color(255, 153, 204));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(51, 0, 51));
-        jButton4.setText("Reiniciar");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReiniciar.setBackground(new java.awt.Color(255, 153, 204));
+        btnReiniciar.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnReiniciar.setForeground(new java.awt.Color(51, 0, 51));
+        btnReiniciar.setText("Reiniciar");
+        btnReiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel3.setText("Empate:");
+        lblEmpate.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblEmpate.setText("Empate:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,42 +123,42 @@ public class TicTacToe extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(lblGano)
                 .addGap(128, 128, 128))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(127, 127, 127)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(229, 229, 229)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addComponent(jLabel3))
+                        .addComponent(lblEmpate))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,31 +169,31 @@ public class TicTacToe extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblGano, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblEmpate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(btnReiniciar)
                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
@@ -199,34 +220,112 @@ public class TicTacToe extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void presionarCasilla(int index) {
+        JButton btn = botones.get(index);
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+        // Si la casilla está vacía y el juego no ha terminado
+        if (btn.getText().isEmpty() && !juegoTerminado) {
+            btn.setText(turno);
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+            if (revisarGanador()) {
+                lblGano.setText("Ganó: " + turno);
+                juegoTerminado = true;
+            } else if (tableroLleno()) {
+                contadorEmpates++;
+                lblEmpate.setText("Empate: " + contadorEmpates);
+               
+                juegoTerminado = true;
+            } else {
+                // Cambiar turno entre "X" y "O"
+                if (turno.equals("X")) {
+                    turno = "O";
+                } else {
+                    turno = "X";
+                }
+            }
+        }
+    }
+    private boolean revisarGanador() {
+        int[][] combinaciones = {
+            {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, // Filas
+            {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, // Columnas
+            {0, 4, 8}, {2, 4, 6}             // Diagonales
+        };
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+        for (int[] c : combinaciones) {
+            String b1 = botones.get(c[0]).getText();
+            String b2 = botones.get(c[1]).getText();
+            String b3 = botones.get(c[2]).getText();
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+            if (!b1.isEmpty() && b1.equals(b2) && b2.equals(b3)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private boolean tableroLleno() {
+        for (JButton b : botones) {
+            if (b.getText().isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void reiniciarJuego() {
+        for (JButton b : botones) {
+            b.setText("");
+        }
+        turno = "X";
+        juegoTerminado = false;
+        lblGano.setText("Ganó: ");
+    }
+   
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+        presionarCasilla(8);
+    }//GEN-LAST:event_btn8ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        presionarCasilla(5);
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        // TODO add your handling code here:
+        presionarCasilla(2);
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        // TODO add your handling code here:
+        presionarCasilla(7);
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        // TODO add your handling code here:    
+        presionarCasilla(4);    
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        // TODO add your handling code here:
+        presionarCasilla(1);
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        // TODO add your handling code here:
+        presionarCasilla(0);
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        // TODO add your handling code here:
+        presionarCasilla(3);
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        // TODO add your handling code here:
+        presionarCasilla(6);
+    }//GEN-LAST:event_btn6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,19 +353,19 @@ public class TicTacToe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btn0;
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
+    private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
+    private javax.swing.JButton btn7;
+    private javax.swing.JButton btn8;
+    private javax.swing.JButton btnReiniciar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblEmpate;
+    private javax.swing.JLabel lblGano;
     // End of variables declaration//GEN-END:variables
 }
