@@ -32,7 +32,7 @@ public class TicTacToe extends javax.swing.JFrame {
         botones.add(btn7);
         botones.add(btn8);
 
-        // Evento del botón reiniciar
+       
         btnReiniciar.addActionListener(evt -> reiniciarJuego());
     }
 
