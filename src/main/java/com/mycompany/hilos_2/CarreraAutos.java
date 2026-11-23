@@ -12,6 +12,7 @@ public class CarreraAutos extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CarreraAutos.class.getName());
     private Auto autoRojo, autoAzul, autoVerde;
+    private boolean ganador = false;
     /**
      * Creates new form CarreraAutos
      */
@@ -32,16 +33,16 @@ public class CarreraAutos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         lblCopa = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         pgbAutoRojo = new javax.swing.JProgressBar();
         pgbAutoVerde = new javax.swing.JProgressBar();
         pgbAutoAzul = new javax.swing.JProgressBar();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblAutoRojo = new javax.swing.JLabel();
+        lblAutoAzul = new javax.swing.JLabel();
+        lblAutoVerde = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -59,21 +60,26 @@ public class CarreraAutos extends javax.swing.JFrame {
         jPanel19 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lblFinish = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         btnIniciar = new javax.swing.JButton();
         btnReiniciar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblGanador = new javax.swing.JLabel();
+        lblBandera1 = new javax.swing.JLabel();
+        lblBandera2 = new javax.swing.JLabel();
+        lblGanador1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(55, 0, 168));
 
-        jLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CARRERA DE AUTOS");
+        lblTitle.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("CARRERA DE AUTOS");
+
+        lblCopa.setIcon(new javax.swing.ImageIcon("C:\\Users\\puma_\\OneDrive\\Documentos\\NetBeansProjects\\Hilos_2\\src\\main\\java\\com\\mycompany\\hilos_2\\copa1.png")); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -98,18 +104,18 @@ public class CarreraAutos extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Auto Rojo");
+        lblAutoRojo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAutoRojo.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutoRojo.setText("Auto Rojo");
 
-        jLabel3.setBackground(new java.awt.Color(0, 51, 255));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Auto Azul");
+        lblAutoAzul.setBackground(new java.awt.Color(0, 51, 255));
+        lblAutoAzul.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAutoAzul.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutoAzul.setText("Auto Azul");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Auto Verde");
+        lblAutoVerde.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAutoVerde.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutoVerde.setText("Auto Verde");
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -348,10 +354,10 @@ public class CarreraAutos extends javax.swing.JFrame {
             .addGap(0, 6, Short.MAX_VALUE)
         );
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("F\nI\nN\nI\nS\nH");
+        lblFinish.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblFinish.setForeground(new java.awt.Color(255, 255, 255));
+        lblFinish.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFinish.setText("F\nI\nN\nI\nS\nH");
 
         jPanel22.setBackground(new java.awt.Color(255, 255, 255));
         jPanel22.setPreferredSize(new java.awt.Dimension(29, 6));
@@ -377,11 +383,11 @@ public class CarreraAutos extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(lblAutoAzul)
                                 .addGap(18, 18, 18)
                                 .addComponent(pgbAutoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(lblAutoRojo)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -423,13 +429,13 @@ public class CarreraAutos extends javax.swing.JFrame {
                                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4)
+                        .addComponent(lblAutoVerde)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pgbAutoVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblFinish, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -438,7 +444,7 @@ public class CarreraAutos extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pgbAutoRojo, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lblAutoRojo))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -452,7 +458,7 @@ public class CarreraAutos extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addComponent(lblAutoAzul)
                     .addComponent(pgbAutoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -469,7 +475,7 @@ public class CarreraAutos extends javax.swing.JFrame {
                             .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addComponent(pgbAutoVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
+                    .addComponent(lblAutoVerde))
                 .addContainerGap(31, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,7 +484,7 @@ public class CarreraAutos extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblFinish, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -499,6 +505,13 @@ public class CarreraAutos extends javax.swing.JFrame {
         lblGanador.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblGanador.setForeground(new java.awt.Color(255, 255, 255));
 
+        lblBandera1.setIcon(new javax.swing.ImageIcon("C:\\Users\\puma_\\OneDrive\\Documentos\\NetBeansProjects\\Hilos_2\\src\\main\\java\\com\\mycompany\\hilos_2\\bandera-Photoroom.png")); // NOI18N
+
+        lblBandera2.setIcon(new javax.swing.ImageIcon("C:\\Users\\puma_\\OneDrive\\Documentos\\NetBeansProjects\\Hilos_2\\src\\main\\java\\com\\mycompany\\hilos_2\\bandera-Photoroom.png")); // NOI18N
+
+        lblGanador1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblGanador1.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -506,49 +519,62 @@ public class CarreraAutos extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCopa, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel7)
-                        .addGap(31, 31, 31))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBandera1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCopa, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblBandera2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblGanador, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(115, 115, 115))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(lblTitle)
                 .addGap(66, 66, 66))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(lblGanador)
+                .addGap(178, 178, 178)
+                .addComponent(lblGanador1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lblTitle)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel7))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCopa, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblGanador1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(38, 38, 38)
-                                .addComponent(jLabel6))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(lblBandera1)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jLabel7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblCopa, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblGanador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(40, 40, 40)
+                                .addComponent(lblBandera2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblGanador)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -561,7 +587,7 @@ public class CarreraAutos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,29 +599,41 @@ public class CarreraAutos extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         // TODO add your handling code here:
-        btnIniciar.setEnabled(false);
-           
+        btnIniciar.setEnabled(false);//bloquea el boton para que no pueda iniciar otra carrera
+        
+        //inicializamos e instanciamos los hilos 
         autoRojo = new Auto("Auto Rojo", pgbAutoRojo);
         autoAzul = new Auto("Auto Azul", pgbAutoAzul);
         autoVerde = new Auto("Auto Verde", pgbAutoVerde);
         
+        //iniciamos los hilos
         autoRojo.start();
         autoAzul.start();
         autoVerde.start();
     }//GEN-LAST:event_btnIniciarActionPerformed
-
+    
+    //Este metodo determina quien es el ganador, hace que no pueda haber dos o más ganadores 
+    public synchronized void mostrarGanador(String nombreAuto){ 
+        if(!ganador){
+            ganador = true;
+            lblGanador1.setText("Gano el " + nombreAuto); //Trae desde la clase auto el nombre
+        }                                                 //autoRojo = new Auto("Auto Rojo", pgbAutoRojo);                  
+    }
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
         if (carreraEnCurso()){
-            javax.swing.JOptionPane.showMessageDialog(this, "Espera a que gane el que va a ganar");
+            javax.swing.JOptionPane.showMessageDialog(this, "Espera a que finalice la carrera");
             return; // Interrumpe el boton
         }
         pgbAutoRojo.setValue(0);
         pgbAutoAzul.setValue(0);
         pgbAutoVerde.setValue(0);
                 
-        //ganador = false;
-        lblGanador.setText("");
-        btnIniciar.setEnabled(true);
+        //ganador = false; retorna la variable ganador a false para la siguiente carrera
+        //Me pasaba que seguia con el mismo ganador de la primer carrera y era porque ganador seguia true T_T
+        //Si habia un ganador pero de la primera carrera, no de la actual 
+        ganador = false;
+        lblGanador1.setText("");
+        btnIniciar.setEnabled(true); //desbloquea el boton START para poder reiniciar otra carrera
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
@@ -626,11 +664,6 @@ public class CarreraAutos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnReiniciar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -654,14 +687,23 @@ public class CarreraAutos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lblAutoAzul;
+    private javax.swing.JLabel lblAutoRojo;
+    private javax.swing.JLabel lblAutoVerde;
+    private javax.swing.JLabel lblBandera1;
+    private javax.swing.JLabel lblBandera2;
     private javax.swing.JLabel lblCopa;
+    private javax.swing.JLabel lblFinish;
     private javax.swing.JLabel lblGanador;
+    private javax.swing.JLabel lblGanador1;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JProgressBar pgbAutoAzul;
     private javax.swing.JProgressBar pgbAutoRojo;
     private javax.swing.JProgressBar pgbAutoVerde;
     // End of variables declaration//GEN-END:variables
 
-    class Auto extends Thread {
+    //Creamos una clase anidada que hereda de la clase hilos permitiendo la ejecución de cada auto
+    class Auto extends Thread { 
         private javax.swing.JProgressBar barra;
 
         public Auto(String nombre, javax.swing.JProgressBar barra) {
@@ -675,7 +717,7 @@ public class CarreraAutos extends javax.swing.JFrame {
             for (int i = 0; i<= 100;i += (int)(Math.random() * 7) + 1){ //suma la velocidad entre 1 y 7
             int conductor = (int) (Math.random() * 367); //el tiempo de espera para cada movimiento
                 try{
-                    Thread.sleep(conductor);
+                    Thread.sleep(conductor);   
                 }catch (InterruptedException e){
                     break;
                 }
@@ -686,6 +728,7 @@ public class CarreraAutos extends javax.swing.JFrame {
             //esta linea se usa para modificar la interfaz directamente, despues pide que se ejecute cuando el hilo termine,
             //y por ultimo se le dice que hacer () ->
             javax.swing.SwingUtilities.invokeLater(() -> barra.setValue(100));
+            mostrarGanador(getName());//Obtiene al ganador al completar el progreso
         }
         
     }
